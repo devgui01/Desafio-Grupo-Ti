@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking de Beleza</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Ranking de Beleza</h1>
+        </header>
+        <main>
+            <div id="start-screen">
+                <button id="start-button">Iniciar</button>
+            </div>
+
+            <div id="vote-screen" class="hidden">
+                <div class="image-container">
+                    <h2 id="person-name"></h2>
+                    <img id="random-image" src="" alt="Pessoa" />
+                    <div class="buttons">
+                        <button id="beautiful-button">Bonita</button>
+                        <button id="ugly-button">Feia</button>
+                    </div>
+                </div>
+
+                <button id="back-button">Voltar</button>
+                <div class="ranking">
+                    <div class="ranking-list">
+                        <h3>Mais Feias</h3>
+                        <ul id="ugly-ranking"></ul>
+                    </div>
+                    <div class="ranking-list">
+                        <h3>Mais Bonitas</h3>
+                        <ul id="beautiful-ranking"></ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
