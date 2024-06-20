@@ -6,8 +6,8 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(to bottom, rgb(0, 0, 0), rgba(1, 0, 61, 0.966)); /* Cria um degradê vertical de azul para claro */
-    color: white; /* Altera a cor do texto para branco para melhorar a legibilidade */
+    background: linear-gradient(to bottom, rgb(0, 0, 0), rgba(1, 0, 61, 0.966));
+    color: white;
 }
 
 .container {
@@ -60,17 +60,17 @@ main {
 .ranking {
     width: 100%;
     display: flex;
-    justify-content: space-between; /* Distribui os rankings para as extremidades */
+    justify-content: space-between;
     margin-top: 20px;
 }
 
 .ranking-list {
-    width: 45%; /* Define uma largura para cada lista para manter a responsividade */
+    width: 45%;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0.61), rgba(59, 59, 59, 0.267));
     padding: 20px;
-    border-radius: 10px; /* Bordas arredondadas */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
-    margin: 0 10px; /* Espaçamento entre os quadrados */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 10px;
 }
 
 .ranking-list div {
@@ -80,20 +80,20 @@ main {
 .ranking-list ul {
     list-style: none;
     padding: 0;
-    color: black; /* Cor do texto para preto */
+    color: black;
 }
 
 .ranking-list li {
     margin-bottom: 10px;
 }
 
-#start-button {  
+#start-button {
     padding: 10px 20px;
     font-size: 20px;
-    cursor: pointer;    
+    cursor: pointer;
 }
 
-#back-button {            
+#back-button {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 20px;
@@ -117,21 +117,25 @@ main {
     }
 
     .image-container img {
-        max-width: 80%; /* Ajusta a largura máxima da imagem para 80% */
+        max-width: 80%;
     }
 
     .ranking {
-        flex-direction: column; /* Empilha os rankings verticalmente em telas menores */
+        flex-direction: column;
         align-items: center;
     }
 
     .ranking-list {
-        width: 100%; /* Ajusta a largura para 100% em telas menores */
+        width: 100%;
         margin-bottom: 20px;
     }
 }
 
 @media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
     .buttons button {
         font-size: 12px;
         padding: 8px;
@@ -140,29 +144,29 @@ main {
     #back-button {
         position: absolute;
         top: 20px;
-        left: 20px !important; /* Adicione !important */
+        left: 20px;
         padding: 10px 20px;
-        font-size: 20px;
+        font-size: 16px;
         cursor: pointer;
     }
-    
-    /* Defina um tamanho fixo para as imagens */
+
     .image-container img {
-        width: 300px; /* Ajuste o valor conforme necessário */
-        height: 400px; /* Ajuste o valor conforme necessário */
-        object-fit: cover; /* Garante que a imagem preencha a área definida */
+        width: 100%;
+        height: auto;
+        object-fit: cover;
         margin-bottom: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
     }
 
-    #start-button, #back-button {
-        padding: 8px;
-        font-size: 16px;
+    .ranking {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .image-container img {
-        max-width: 150%; /* Ajusta a largura máxima da imagem para 100% */
+    .ranking-list {
+        width: 100%;
+        margin-bottom: 20px;
     }
 
     .ranking-list div {
