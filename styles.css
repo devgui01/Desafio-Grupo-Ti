@@ -6,7 +6,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(to bottom, rgb(0, 0, 0), rgba(1, 0, 61, 0.966));
+    background: linear-gradient(to bottom, rgb(0, 0, 0), rgba(169, 0, 236, 0.966));
     color: white;
 }
 
