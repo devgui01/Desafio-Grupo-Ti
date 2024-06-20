@@ -1,44 +1,38 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ranking de Beleza</title>
+    <title>FaceMatch</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="background"></div>
     <div class="container">
-        <header>
-            <h1>Ranking de Beleza</h1>
-        </header>
-        <main>
-            <div id="start-screen">
-                <button id="start-button">Iniciar</button>
+        <h1 id="title">FaceMatch</h1>
+        <button id="startButton">Iniciar</button>
+        <div class="toolbar">
+            <nav>
+                <ul>
+                    <li><a href="#" id="homeLink">Home</a></li>
+                    <li><a href="#">Sobre</a></li>
+                    <li><a href="#">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="profile">
+            <h2 id="personName">Nome da Pessoa</h2>
+            <img src="foto.jpg" alt="Foto da Pessoa" id="personImage">
+            <div class="buttons">
+                <button id="beautifulButton">Bonita</button>
+                <button id="uglyButton">Feia</button>
             </div>
-
-            <div id="vote-screen" class="hidden">
-                <div class="image-container">
-                    <h2 id="person-name"></h2> 
-                    <img id="random-image" src="" alt="Pessoa" />
-                    <div class="buttons">
-                        <button id="beautiful-button">Bonita</button>
-                        <button id="ugly-button">Feia</button>
-                    </div> 
-                </div>
-
-                <button id="back-button">Voltar</button>
-                <div class="ranking">
-                    <div class="ranking-list">
-                        <h3>Mais Feias</h3>
-                        <ul id="ugly-ranking"></ul>
-                    </div>
-                    <div class="ranking-list">
-                        <h3>Mais Bonitas</h3>
-                        <ul id="beautiful-ranking"></ul>
-                    </div>
-                </div>
-            </div>
-        </main>
+        </div>
+        <div class="ranking">
+            <h2>Ranking</h2>
+            <div id="rankingList"></div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

@@ -1,92 +1,60 @@
-const images = [
-    //{ name: 'Guilherme Souza', src: 'imagens/GuilhermeSouza.jpg', beautiful: 0, ugly: 0 },
-    { name: 'Pessoa1', src: 'imagens/Slash.jpg', beautiful: 0, ugly: 0 },
-    { name: 'Pessoa2', src: 'imagens/Slash.jpg', beautiful: 0, ugly: 0 },
-    // { name: 'Osvaldo Coelho', src: 'imagens/Flor.jpeg.jpg', beautiful: 0, ugly: 0 },
-    // { name: 'Jullya Pinheiro', src: 'imagens/image5.jpg', beautiful: 0, ugly: 0 },
-    // { name: 'Ernandes Carvalho', src: 'imagens/image6.jpg', beautiful: 0, ugly: 0 },
-    // { name: 'José Pietro', src: 'imagens/image7.jpg', beautiful: 0, ugly: 0 },
-    // { name: 'Eloyse Santos', src: 'imagens/image8.jpg', beautiful: 0, ugly: 0 },
-    // { name: 'Fernanda Castrito', src: 'imagens/image9.jpg', beautiful: 0, ugly: 0 },
-    // { name: 'Maria José', src: 'imagens/image10.jpg', beautiful: 0, ugly: 0 }
+document.getElementById('startButton').addEventListener('click', function() {
+    document.querySelector('.toolbar').style.display = 'block';
+    document.querySelector('.profile').style.display = 'block';
+    document.querySelector('.ranking').style.display = 'block';
+    this.style.display = 'none'; // Esconde o botão "Iniciar"
+    document.getElementById('title').style.display = 'none'; // Esconde o título "FaceMatch"
+});
+
+document.getElementById('homeLink').addEventListener('click', function() {
+    document.querySelector('.toolbar').style.display = 'none';
+    document.querySelector('.profile').style.display = 'none';
+    document.querySelector('.ranking').style.display = 'none';
+    document.getElementById('startButton').style.display = 'block'; // Mostra o botão "Iniciar"
+    document.getElementById('title').style.display = 'block'; // Mostra o título "FaceMatch"
+});
+
+const people = [
+    { name: 'Pessoa 1', votesBeautiful: 0, votesUgly: 0 },
+    { name: 'Pessoa 2', votesBeautiful: 0, votesUgly: 0 },
+    // Adicione mais pessoas aqui
 ];
 
-const startScreen = document.getElementById('start-screen');
-const voteScreen = document.getElementById('vote-screen');
-const startButton = document.getElementById('start-button');
-const backButton = document.getElementById('back-button');
-const randomImage = document.getElementById('random-image');
-const personName = document.getElementById('person-name');
-const beautifulButton = document.getElementById('beautiful-button');
-const uglyButton = document.getElementById('ugly-button');
-const beautifulRanking = document.getElementById('beautiful-ranking');
-const uglyRanking = document.getElementById('ugly-ranking');
+let currentIndex = 0;
 
-let currentImage = null;
-let votedImages = new Set();
+function showPerson(index) {
+    const person = people[index];
+    document.getElementById('personName').innerText = person.name;
+    // document.getElementById('personImage').src = person.image; // Adicione a propriedade 'image' aos objetos de pessoas, se necessário
+}
 
-function getRandomImage() {
-    if (votedImages.size === images.length) {
-        alert("Você já votou em todas as pessoas!");
-        return;
-    }
+document.getElementById('beautifulButton').addEventListener('click', function() {
+    people[currentIndex].votesBeautiful++;
+    updateRanking();
+    nextPerson();
+});
 
-    let randomIndex;
-    do {
-        randomIndex = Math.floor(Math.random() * images.length);
-    } while (votedImages.has(randomIndex));
+document.getElementById('uglyButton').addEventListener('click', function() {
+    people[currentIndex].votesUgly++;
+    updateRanking();
+    nextPerson();
+});
 
-    currentImage = images[randomIndex];
-    personName.textContent = currentImage.name;
-    randomImage.src = currentImage.src;
+function nextPerson() {
+    currentIndex = (currentIndex + 1) % people.length;
+    showPerson(currentIndex);
 }
 
 function updateRanking() {
-    beautifulRanking.innerHTML = '';
-    uglyRanking.innerHTML = '';
-
-    const sortedBeautiful = [...images].sort((a, b) => b.beautiful - a.beautiful);
-    const sortedUgly = [...images].sort((a, b) => b.ugly - a.ugly);
-
-    sortedBeautiful.slice(0, 5).forEach(image => {
-        const li = document.createElement('li');
-        li.textContent = `${image.name} (${image.beautiful})`;
-        beautifulRanking.appendChild(li);
-    });
-
-    sortedUgly.slice(0, 5).forEach(image => {
-        const li = document.createElement('li');
-        li.textContent = `${image.name} (${image.ugly})`;
-        uglyRanking.appendChild(li);
+    const rankingList = document.getElementById('rankingList');
+    rankingList.innerHTML = '';
+    people.forEach(person => {
+        const rankingItem = document.createElement('div');
+        rankingItem.className = 'rankingItem';
+        rankingItem.innerHTML = `${person.name}<br>Bonita: ${person.votesBeautiful}<br>Feia: ${person.votesUgly}`;
+        rankingList.appendChild(rankingItem);
     });
 }
 
-startButton.addEventListener('click', () => {
-    startScreen.classList.add('hidden');
-    voteScreen.classList.remove('hidden');
-    getRandomImage();
-});
-
-backButton.addEventListener('click', () => {
-    voteScreen.classList.add('hidden');
-    startScreen.classList.remove('hidden');
-    votedImages.clear(); // Reseta os votos quando voltar para a tela inicial
-});
-
-beautifulButton.addEventListener('click', () => {
-    if (currentImage) {
-        currentImage.beautiful++;
-        votedImages.add(images.indexOf(currentImage));
-        updateRanking();
-        getRandomImage();
-    }
-});
-
-uglyButton.addEventListener('click', () => {
-    if (currentImage) {
-        currentImage.ugly++;
-        votedImages.add(images.indexOf(currentImage));
-        updateRanking();
-        getRandomImage();
-    }
-});
+// Inicialize a primeira pessoa
+showPerson(currentIndex);

@@ -1,179 +1,147 @@
-/* Estilos gerais */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
-    background: linear-gradient(to bottom, rgb(0, 0, 0), rgba(169, 0, 236, 0.966));
-    color: white;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
 .container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 1;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    width: 100%;
-    max-width: 600px;
-    padding: 20px;
 }
 
-header h1 {
-    margin-bottom: 20px;
+h1 {
     text-align: center;
+    font-size: 3em;
+    color: white;
+    z-index: 2;
 }
 
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-.hidden {
-    display: none;
-}
-
-.image-container {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.image-container img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-.buttons button {
-    margin: 5px;
+button {
+    display: block;
+    margin: 20px auto;
     padding: 10px 20px;
-    font-size: 16px;
+    font-size: 1.2em;
+    background-color: #fff;
+    color: #4285f4;
+    border: none;
+    border-radius: 20px;
     cursor: pointer;
-    width: 100%;
-    max-width: 200px;
+    transition: background-color 0.3s;
+    z-index: 2;
+}
+
+button:hover {
+    background-color: #f1f1f1;
+}
+
+.toolbar,
+.profile,
+.ranking {
+    display: none;
+    color: white;
+    text-align: center;
+    z-index: 2;
+}
+
+.toolbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.toolbar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.toolbar nav ul li {
+    margin: 0 15px;
+}
+
+.toolbar nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.2em;
+    transition: color 0.3s;
+}
+
+.toolbar nav ul li a:hover {
+    color: #f1f1f1;
+}
+
+.profile {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+.buttons {
+    margin-top: 20px;
 }
 
 .ranking {
-    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#rankingList {
     display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-.ranking-list {
-    width: 45%;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.61), rgba(59, 59, 59, 0.267));
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 0 10px;
+.rankingItem {
+    width: 100px;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
 }
 
-.ranking-list div {
-    margin-bottom: 20px;
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: linear-gradient(45deg, #828aff, #2f3dff, #0616ff, #00065c);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    z-index: 0;
 }
 
-.ranking-list ul {
-    list-style: none;
-    padding: 0;
-    color: black;
-}
-
-.ranking-list li {
-    margin-bottom: 10px;
-}
-
-#start-button {
-    padding: 10px 20px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-#back-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-/* Estilos responsivos */
-@media (max-width: 768px) {
-    .container {
-        padding: 10px;
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
     }
-
-    .buttons button {
-        font-size: 14px;
-        padding: 10px;
+    50% {
+        background-position: 100% 50%;
     }
-
-    #start-button, #back-button {
-        padding: 10px;
-        font-size: 18px;
-    }
-
-    .image-container img {
-        max-width: 80%;
-    }
-
-    .ranking {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .ranking-list {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 10px;
-    }
-
-    .buttons button {
-        font-size: 12px;
-        padding: 8px;
-    }
-
-    #back-button {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-    }
-
-    .image-container img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        margin-bottom: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-    }
-
-    .ranking {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .ranking-list {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .ranking-list div {
-        margin-bottom: 10px;
-    }
-
-    .ranking-list li {
-        margin-bottom: 5px;
+    100% {
+        background-position: 0% 50%;
     }
 }
