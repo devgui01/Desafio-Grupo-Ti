@@ -1,0 +1,179 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to bottom, rgb(0, 0, 0), rgba(169, 0, 236, 0.966));
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+}
+
+header h1 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+.image-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.buttons button {
+    margin: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 200px;
+}
+
+.ranking {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.ranking-list {
+    width: 45%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.61), rgba(59, 59, 59, 0.267));
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 10px;
+}
+
+.ranking-list div {
+    margin-bottom: 20px;
+}
+
+.ranking-list ul {
+    list-style: none;
+    padding: 0;
+    color: black;
+}
+
+.ranking-list li {
+    margin-bottom: 10px;
+}
+
+#start-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#back-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .buttons button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    #start-button, #back-button {
+        padding: 10px;
+        font-size: 18px;
+    }
+
+    .image-container img {
+        max-width: 80%;
+    }
+
+    .ranking {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ranking-list {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .buttons button {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    #back-button {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        margin-bottom: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    .ranking {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ranking-list {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .ranking-list div {
+        margin-bottom: 10px;
+    }
+
+    .ranking-list li {
+        margin-bottom: 5px;
+    }
+}
