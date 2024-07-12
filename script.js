@@ -4,7 +4,7 @@ const images = [
     { name: 'Pessoa2', src: 'imagens/Slash.jpg', beautiful: 0, ugly: 0 },
     // { name: 'Osvaldo Coelho', src: 'imagens/Flor.jpeg.jpg', beautiful: 0, ugly: 0 },
     // { name: 'Jullya Pinheiro', src: 'imagens/image5.jpg', beautiful: 0, ugly: 0 },
-    // { name: 'Ernandes Carvalho', src: 'imagens/image6.jpg', beautiful: 0, ugly: 0 },
+    // { name: 'Ernandes Carvalho', src: 'imagens/image6.jpg', beautiful: 0,ss ugly: 0 },
     // { name: 'José Pietro', src: 'imagens/image7.jpg', beautiful: 0, ugly: 0 },
     // { name: 'Eloyse Santos', src: 'imagens/image8.jpg', beautiful: 0, ugly: 0 },
     // { name: 'Fernanda Castrito', src: 'imagens/image9.jpg', beautiful: 0, ugly: 0 },
